@@ -1,20 +1,34 @@
-import WarnSign from './components/WarnSign'
-import SingleBook from './components/SingleBook'
+//import WarnSign from './components/WarnSign'
+import BookList from './components/BookList'
+import SearchBar from './components/SearchBar'
+import React from 'react'
 
-const OneBook = {
-  "asin": "0345546792",
-  "title": "The Silent Corner: A Novel of Suspense (Jane Hawk)",
-  "img": "https://images-na.ssl-images-amazon.com/images/I/91dDIYze1wL.jpg",
-  "price": 7.92,
-  "category": "horror"
-};
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      filterText: "",
+      filteredBooks: []
+    }
+    this.handleFilterTextChange = this.handleFilterTextChange.bind(this)
+  }
 
+  handleFilterTextChange(filterText) {
+    this.setState({ filterText: filterText})
+}
 
-function App() {
-  return (
-    <WarnSign message="This is an error!"/>,
-    <SingleBook book={OneBook}/>
-  )
+  render(){
+    return (
+      <>
+      <SearchBar 
+      filterText = {this.state.filterText} 
+      onFilterTextChange = {this.handleFilterTextChange}/>,
+      <BookList 
+      books={this.props.books} 
+      filterText = {this.state.filterText}/>
+      </>
+    )
+  }
 }
 
 export default App;

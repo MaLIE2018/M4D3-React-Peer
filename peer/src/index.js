@@ -4,9 +4,10 @@ import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import data from './data/history.json'
+
 ReactDOM.render(
- 
-    <App />,
+    <App books = {data}/>,
   document.getElementById('root')
 );
 
