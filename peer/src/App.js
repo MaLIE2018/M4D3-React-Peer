@@ -1,10 +1,11 @@
 import logo from './logo.svg';
+import WarnSign from './components/WarnSign'
 
 
 function App() {
   return (
-    <h1>"Hello"</h1>
-  );
+    <WarnSign message="This is an error!"/>
+  )
 }
 
 export default App;
