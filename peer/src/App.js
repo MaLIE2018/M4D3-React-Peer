@@ -2,6 +2,7 @@
 import BookList from './components/BookList'
 import SearchBar from './components/SearchBar'
 import React from 'react'
+import {Component} from 'react'
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,10 @@ class App extends React.Component {
   }
 
   handleFilterTextChange(filterText) {
-    this.setState({ filterText: filterText})
+
+    this.setState((state) => { 
+      return {filterText: filterText}
+    })
 }
 
   render(){
